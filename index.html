@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Price Data API — Japanese TCG &amp; JDM market prices, as a feed</title>
+<meta name="description" content="Japan-side market prices you cannot see from outside Japan: Japanese Pokemon TCG asking prices vs eBay sold medians, and JDM car market aggregates vs US sold prices. Public data only, refreshed every 12 hours. Early access open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  nav a.cta-nav{color:var(--core);border:1.5px solid var(--core);padding:6px 15px;border-radius:999px;font-weight:700}
+  nav a.cta-nav:hover{background:var(--core);color:#fff}
+  /* hero */
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  .hero .note{margin-top:20px;font-size:13.5px;color:#93a0b8}
+  .facts{display:flex;gap:14px;flex-wrap:wrap;margin-top:48px}
+  .fact{flex:1;min-width:170px;background:var(--core-deep);border:1px solid #2b3a63;border-radius:10px;padding:16px}
+  .fact b{display:block;font-family:"Archivo",sans-serif;font-size:24px;color:#fff}
+  .fact small{font-size:12.5px;color:#93a0b8;line-height:1.55;display:block}
+  /* sections */
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  /* tables */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .pos{color:var(--good);font-weight:700}
+  .neg{color:var(--bad)}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  /* api */
+  .api-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:820px){.api-grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:var(--bg-alt);padding:1px 6px;border-radius:4px}
+  pre{background:var(--core-deep);color:#d7e0f2;border-radius:10px;padding:20px;font-size:12.8px;line-height:1.65;overflow-x:auto;font-family:ui-monospace,Menlo,Consolas,monospace}
+  /* pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.price-grid{grid-template-columns:1fr}}
+  .plan{border:1px solid var(--line);border-radius:12px;padding:28px;background:#fff}
+  .plan.hot{border:2px solid var(--accent)}
+  .plan .tag{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent);font-family:"Archivo",sans-serif}
+  .plan .price{font-family:"Archivo",sans-serif;font-size:34px;font-weight:800;color:var(--core);margin:8px 0 4px}
+  .plan .price small{font-size:14px;color:var(--muted);font-weight:600}
+  .plan ul{list-style:none;margin-top:14px}
+  .plan li{font-size:14.5px;padding:6px 0;border-top:1px dashed var(--line)}
+  .plan li:first-child{border-top:none}
+  /* cta */
+  .cta-band{background:var(--core);color:#fff;border-radius:14px;padding:44px 40px;text-align:center}
+  .cta-band h2{color:#fff}
+  .cta-band p{color:#cfd6e4;max-width:640px;margin:0 auto 28px}
+  footer{padding:44px 0 54px;color:var(--muted);font-size:13px;line-height:1.9}
+  footer .src{margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#">Japan Price Data <span>API</span></a>
+    <nav>
+      <a href="#tcg">TCG sample</a>
+      <a href="#jdm">JDM sample</a>
+      <a href="#api">API</a>
+      <a href="#pricing">Pricing</a>
+      <a class="cta-nav" href="#early-access">Early access</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">EARLY ACCESS — VALIDATION PHASE</span>
+    <h1>Japanese market prices<br>you <em>can't see</em> from outside Japan.</h1>
+    <p class="lead">We track Japan-side prices for Pokémon TCG and JDM cars — the asking prices inside Japan, compared against what the same items actually sell for overseas — and publish them as one clean API / data feed. Public data only. No member-only auction data, ever.</p>
+    <a class="cta-btn" href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Japan%20Price%20Data%20API&amp;body=Dataset%20I%20want%3A%20TCG%20%2F%20JDM%20%2F%20both%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">Join the early-access list</a>
+    <p class="note">One email. Tell us which dataset you want and what you would pay per month — that answer shapes the product.</p>
+    <div class="facts">
+      <div class="fact"><b class="num">40</b><small>high-value Japanese Pokémon cards tracked</small></div>
+      <div class="fact"><b class="num">12 h</b><small>scan refresh cycle for TCG prices</small></div>
+      <div class="fact"><b class="num">2</b><small>datasets: TCG spreads + JDM market aggregates</small></div>
+      <div class="fact"><b class="num">100%</b><small>public sources, each figure labelled with its source</small></div>
+    </div>
+  </div>
+</div>
+
+<section id="tcg">
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — TCG</p>
+    <h2>Japan ask vs. overseas sold, with the spread done honestly</h2>
+    <p class="sec-lead">From our latest scan (Nov 21, 2026, 12:57 JST). Net spread = eBay sold median × FX − 13.25% eBay fee − Japan ask − ¥2,500 international shipping − ¥1,600 proxy/domestic costs. “Max buy” is the Japan price at which the net would be exactly +$30. FX: ¥159.75 / $1.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Card</th><th>Japan ask</th><th>eBay sold median</th><th>Net spread</th><th>Max buy (JP)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Umbreon VMAX Alt Art 095/069</td><td class="num">¥550,000</td><td class="num">$2,050.00</td><td class="num neg">−$1,690.17</td><td class="num">¥275,000</td></tr>
+          <tr><td>Giratina V Alt Art 111/100</td><td class="num">¥222,222</td><td class="num">$1,050.00</td><td class="num neg">−$505.85</td><td class="num">¥136,500</td></tr>
+          <tr><td>Lugia V Alt Art 110/098</td><td class="num">¥115,000</td><td class="num">$599.99</td><td class="num neg">−$225.05</td><td class="num">¥74,000</td></tr>
+          <tr><td>Glaceon VMAX Alt Art 091/069</td><td class="num">¥98,999</td><td class="num">$370.00</td><td class="num neg">−$324.40</td><td class="num">¥42,000</td></tr>
+          <tr><td>Charizard ex SAR 201/165</td><td class="num">¥57,000</td><td class="num">$355.00</td><td class="num neg">−$74.51</td><td class="num">¥40,000</td></tr>
+          <tr><td>Marnie SR 068/060</td><td class="num">¥64,980</td><td class="num">$340.71</td><td class="num neg">−$136.86</td><td class="num">¥38,000</td></tr>
+          <tr><td>Umbreon ex SAR 217/187</td><td class="num">¥43,000</td><td class="num">$299.00</td><td class="num neg">−$35.45</td><td class="num">¥32,500</td></tr>
+          <tr><td>Team Rocket's Mewtwo ex SAR 125/098</td><td class="num">¥56,000</td><td class="num">$297.01</td><td class="num neg">−$118.56</td><td class="num">¥32,000</td></tr>
+          <tr><td>Iono SAR 096/071</td><td class="num">¥33,333</td><td class="num">$280.00</td><td class="num pos">+$8.58</td><td class="num">¥29,500</td></tr>
+          <tr><td>Pikachu ex SAR 132/106</td><td class="num">¥59,000</td><td class="num">$224.99</td><td class="num neg">−$199.81</td><td class="num">¥22,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Japan ask: Toregara (aggregate of public Japanese listings). eBay sold median: last 15 raw/ungraded sales via PriceCharting. Full feed covers all 40 tracked cards, refreshed every 12 hours.</p>
+    <div class="honest"><b>The honest part:</b> right now only 1 of the 40 tracked cards clears even a +$30 net spread. Most Japanese cards are <i>not</i> cheap in Japan right now. The feed exists so you see that <b>before</b> you buy — and catch the few cards, and the moments, where the gap actually opens.</div>
+  </div>
+</section>
+
+<section id="jdm" class="alt">
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — JDM</p>
+    <h2>Where the Japan–US gap still exists (and where it doesn't)</h2>
+    <p class="sec-lead">Public aggregates, Oct–Nov 2026. A key finding from our research: at Japanese <i>retail</i> prices, the gap has closed for most models — US tariffs on Japanese cars rose to 12.5% in July 2026. The remaining spreads below assume sourcing at Japanese auction prices.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Japan side</th><th>US sold median</th><th>Estimated spread</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nissan Skyline GT-R (R34)</td><td class="num">Auction avg ¥18.1M</td><td class="num">$153,000</td><td class="num pos">≈ +$20,000</td><td>Never sold in the US. 2002 models become eligible in 2027</td></tr>
+          <tr><td>Nissan Silvia (S15)</td><td class="num">Retail median ¥3.67M</td><td class="num">$35,294 avg</td><td class="num pos">≈ +$8,000–11,000</td><td>Never sold in the US. Figure assumes auction sourcing</td></tr>
+          <tr><td>Nissan Skyline GT-R (R33)</td><td class="num">Auction avg ¥7.3M</td><td class="num">$65,500</td><td class="num pos">≈ +$8,500</td><td>Est. landed ≈ $57,000</td></tr>
+          <tr><td>Toyota Supra (JZA80)</td><td class="num">Retail median ¥8.56M</td><td class="num">$73,666</td><td class="num pos">+$7,000–9,000</td><td>The one model still cheaper in Japan even at retail</td></tr>
+          <tr><td>Mitsubishi Lancer Evolution IV–VI</td><td class="num">Retail median ¥3.80M</td><td class="num">$29,125</td><td class="num pos">≈ +$3,000–6,000</td><td>US sales started with the Evo VIII. Estimate, auction sourcing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Sources: Goo-net retail medians and Loginet auction aggregates (Mar–May 2025) via TSUISO's published Nov 2026 analysis; US figures from Bring a Trailer results (last 12 months) and CLASSIC.com averages. Japanese prices have risen since the auction window — treat spreads as estimates, not quotes. Landed estimates include the 12.5% US tariff and Japan-side export costs, not US-side registration or reconditioning. The feed also covers the 5 kei-truck models (Hijet, Carry, Sambar, Acty, Minicab) with 16,141 units of public aggregates behind them.</p>
+  </div>
+</section>
+
+<section id="api">
+  <div class="wrap">
+    <p class="kicker">API — PLANNED SHAPE</p>
+    <h2>One key, both datasets</h2>
+    <p class="sec-lead">The API is in validation. This is the shape early-access members are voting on — endpoints and a real record from the current scan.</p>
+    <div class="api-grid">
+      <div class="card">
+        <h3>Endpoints</h3>
+        <ul>
+          <li><code>GET /v1/tcg/cards</code> — all tracked cards, filter by set / min spread</li>
+          <li><code>GET /v1/tcg/cards/{id}</code> — one card, full breakdown + sources</li>
+          <li><code>GET /v1/tcg/scans/latest</code> — scan time, FX rate, coverage</li>
+          <li><code>GET /v1/jdm/models</code> — market aggregates per model</li>
+          <li><code>GET /v1/jdm/models/{id}</code> — one model, sources + eligibility notes</li>
+          <li><code>GET /v1/meta</code> — FX, last update, source list</li>
+        </ul>
+      </div>
+      <pre>{
+  "id": "iono-sar-096-071",
+  "name_en": "Iono SAR 096/071",
+  "set": { "code": "SV2D", "name_en": "Clay Burst" },
+  "jp_ask_jpy": 33333,
+  "jp_ask_source": "Toregara (public listings)",
+  "us_sold_median_usd": 280.00,
+  "us_sold_n": 15,
+  "fx_jpy_per_usd": 159.75,
+  "net_spread_usd": 8.58,
+  "max_buy_jpy": 29500,
+  "updated_at": "2026-11-21T12:57:38+09:00"
+}</pre>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <p class="kicker">PRICING — UNDER VALIDATION</p>
+    <h2>Planned pricing (tell us if it's wrong)</h2>
+    <p class="sec-lead">These are the prices we are testing in early access — not final. If you would pay a different number, the fastest way to change this page is to reply and say so.</p>
+    <div class="price-grid">
+      <div class="plan">
+        <p class="tag">FREE</p>
+        <p class="price">$0</p>
+        <ul>
+          <li>The sample tables on this page</li>
+          <li>Weekly sample report (10 cards + 5 models)</li>
+          <li>After launch: 100 API calls/mo, 24 h-delayed data</li>
+        </ul>
+      </div>
+      <div class="plan hot">
+        <p class="tag">STARTER — TCG</p>
+        <p class="price num">$29<small> /month</small></p>
+        <ul>
+          <li>All 40 tracked cards, every scan (12 h)</li>
+          <li>Net spread + max-buy price per card</li>
+          <li>API 5,000 calls/mo + daily CSV</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <p class="tag">PRO — TCG + JDM</p>
+        <p class="price num">$79<small> /month</small></p>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>JDM market aggregates + eligibility notes</li>
+          <li>Spread alerts, API 50,000 calls/mo</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tbl-note">For data services: the Japan-side dataset itself is also available for licensing — ask in your early-access email. A pay-per-call option for AI agents (x402) is planned as a second billing rail.</p>
+  </div>
+</section>
+
+<section id="early-access">
+  <div class="wrap">
+    <div class="cta-band">
+      <p class="kicker" style="color:#ff8a66">EARLY ACCESS</p>
+      <h2>Be one of the first 10 on the list</h2>
+      <p>Early access opens to a small group of dealers, importers and data services first. Send one email with your dataset (TCG / JDM / both) and the monthly price you would actually pay.</p>
+      <a class="cta-btn" href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Japan%20Price%20Data%20API&amp;body=Dataset%20I%20want%3A%20TCG%20%2F%20JDM%20%2F%20both%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">Email us — join early access</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> TCG: Toregara public listing aggregates (Japan ask), PriceCharting / eBay sold listings (overseas). JDM: Goo-net retail medians, Loginet auction aggregates, Mirai Trading / carmanji public aggregates, Bring a Trailer and CLASSIC.com results (US). FX: exchangerate-api.com. All figures are aggregates or estimates from public data — not quotes, and not a guarantee of any margin. We do not use or redistribute member-only auction data (e.g. USS / AI-NET).</p>
+    <p>Japan Price Data API — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
