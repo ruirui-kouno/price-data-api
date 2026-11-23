@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Whisky — Price-Gap Sample | Japan Price Data API</title>
+<meta name="description" content="Sample: Japan prices vs overseas auction hammer prices for rare Japanese whisky (Yamazaki 25, Yamazaki 55). Same bottle, both sides confirmed from public sources. Gross gap before fees and buyer's premium.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .pos{color:var(--good);font-weight:700}
+  .neg{color:var(--bad);font-weight:700}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  footer{border-top:1px solid var(--line);padding:34px 0 44px;font-size:13.5px;color:var(--muted)}
+  footer .src{margin-bottom:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="index.html">Japan Price Data <span>API</span></a>
+    <nav><a href="index.html">Home</a><a href="buy-ceiling.html">TCG buy-ceiling list</a><a href="eu-kit.html">EU Compliance Kit</a><a href="denim-sample.html">Denim sample</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">SAMPLE — JAPANESE WHISKY</span>
+    <h1>Rare whisky, <em>two prices for one bottle</em></h1>
+    <p class="lead">Closed distilleries and limited releases trade at two very different prices: what a bottle costs in Japan, and what the same bottle hammers for at an overseas auction. This sample shows two bottles where both sides could be confirmed from public sources on Nov 24, 2026. FX: ¥158.70 / $1, ¥208 / £1. No sale or brokerage of alcohol — this page is a data sample only.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — WHISKY (NOV 24, 2026)</p>
+    <h2>Japan price vs. overseas auction hammer, same bottle</h2>
+    <p class="sec-lead">Gap = overseas hammer converted to yen − Japan price. Auction hammers exclude the buyer’s premium, and Japan shop prices include Japanese consumption tax — the numbers below are the gap before all fees, shipping and premiums, not a profit. A net “max buy” figure needs the fee schedule for whisky resale, which is the next step for this dataset.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Bottle</th><th>Japan price</th><th>Overseas hammer</th><th>Gross gap (before fees)</th><th>Gap vs overseas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Yamazaki 25 Year Old — Mizunara Cask, 2025 release</td><td class="num">¥1,100,000 (shop, Linkus, Aug 26, 2026)</td><td class="num">$6,250 (¥991,875) — Unicorn Auctions, Jun 2026</td><td class="num neg">−¥108,125</td><td class="num neg">≈ −11%</td></tr>
+          <tr><td>Yamazaki 55 Year Old — 2020 release, 100 bottles</td><td class="num">¥3,000,000 (official release price, 2020)</td><td class="num">$200,000 (¥31,740,000) — Sotheby’s New York, Jun 2026</td><td class="num pos">+¥28,740,000</td><td class="num pos">≈ +958% over release price</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Yamazaki 25: Japan shop price ¥1,100,000 at Linkus (Aug 26, 2026); the maker’s suggested retail is ¥456,500 tax-included (Suntory official, confirmed Oct 6, 2026) but bottles are sold by lottery only and are not obtainable at that price. Overseas hammer $6,250 at Unicorn Auctions, June 2026 (Whisky Advocate monthly round-up). A second overseas data point: £2,500 at Whisky.Auction Magazine’s November 2026 results (≈ ¥520,000) — overseas results for the same bottle disperse widely by sale. Yamazaki 55: official release price ¥3,000,000 for the 2020 release of 100 bottles (Forbes India); overseas hammer $200,000 at Sotheby’s New York, June 2026 (Whisky Advocate). A Japanese buyback quote for Yamazaki 55 is ¥45,000,000–¥46,000,000 (netoff, Nov 4, 2026) — higher than the overseas hammer, and shown separately because a buyback quote is not a retail price.</p>
+    <div class="honest"><b>The honest part:</b> the two rows point in opposite directions, and that is the point. Yamazaki 25 sells for <b>more</b> in a Japanese shop than it hammered for overseas — there is no arbitrage in that row at all. Yamazaki 55 shows a huge premium over its 2020 release price, but that release price is not a price you can buy at today; it measures the premium, not a trade you can place. Eight more bottles were checked and left out because only one side of the price could be confirmed (Karuizawa 1960 52yo: Sotheby’s New York Sep 2026 $500,000 and Bonhams Hong Kong Jun 2026 HK$6,250,000; Yamazaki 50yo Club Natsume: Bonhams Hong Kong Jun 2026 HK$8,250,000; Yamazaki 1993 Single Sherry Cask: Whisky Auctioneer Sep 2024 $17,006; Hanyu Card Series 1st Edition: Whisky Auctioneer Mar 2026 £43,000; Shirakawa 1958: Bonhams Edinburgh Oct 2024 $8,523 — all overseas only. Hibiki 30yo: Japan ¥456,500 suggested retail / ¥726,000 shop (Oct 6, 2026); Hakushu 25yo: Japan buyback ¥419,500–¥421,000 — both Japan only). We do not publish a row until both sides are in hand.</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">HOW WE COMPARE</p>
+    <h2>Same bottle, same release — or no row</h2>
+    <p class="sec-lead">Whisky prices swing with release year, cask and condition, so a comparison is only valid when the bottle matches exactly.</p>
+    <div class="card">
+      <ul>
+        <li><b>Bottle:</b> distillery + age statement + release year + cask type must match exactly. A different vintage of the same age statement is a different bottle.</li>
+        <li><b>Japan side:</b> shop retail first; maker’s suggested retail shown only with the note that it is lottery-only. Buyback quotes are labelled “buyback” and never mixed with retail.</li>
+        <li><b>Overseas side:</b> hammer price at a named auction house and sale date. Buyer’s premium is excluded from the hammer and stated as a cost to be added, not hidden.</li>
+        <li><b>Sources:</b> public retail listings and published auction results only. No member-only auction data, no scraped private marketplaces. We do not sell or broker whisky; this page is a data sample only.</li>
+      </ul>
+    </div>
+    <p class="tbl-note" style="margin-top:22px">This is a validation sample for the Japan Price Data API. If you buy or import Japanese whisky and want this feed — or want a bottle added — tell us in the early-access email: <a href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Whisky%20dataset&amp;body=Dataset%20I%20want%3A%20Whisky%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">kouno2025kouno@gmail.com</a>. Planned pricing is the same shape as TCG: $29/mo Starter, $79/mo Pro.</p>
+    <p style="margin-top:26px"><a class="cta-btn" href="index.html">Back to the main page</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> Japan: Linkus (linx-as.store) shop prices and Suntory official suggested retail, confirmed Oct 6, 2026; netoff buyback quotes Nov 4, 2026. Overseas: Whisky Advocate monthly auction round-ups (June 2026, September 2026), Whisky.Auction Magazine November 2026 results, Bonhams Hong Kong June 2026 results via THE VALUE. FX: ¥158.70 / $1 (Nov 24, 2026 TCG scan rate), ¥208 / £1 (Nov 23, 2026). All figures are public list or hammer prices — not quotes, and not a guarantee of any margin. We do not sell or broker whisky; this page is a data sample only.</p>
+    <p>Japan Price Data API — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
