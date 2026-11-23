@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Selvedge Denim — Price-Gap Sample | Japan Price Data API</title>
+<meta name="description" content="Sample: Japan retail vs US retail for Japanese selvedge denim (Momotaro, Iron Heart). Model-level list prices, new condition only, with sources. Gross gap before fees and shipping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .pos{color:var(--good);font-weight:700}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  footer{border-top:1px solid var(--line);padding:34px 0 44px;font-size:13.5px;color:var(--muted)}
+  footer .src{margin-bottom:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="index.html">Japan Price Data <span>API</span></a>
+    <nav><a href="index.html">Home</a><a href="buy-ceiling.html">TCG buy-ceiling list</a><a href="eu-kit.html">EU Compliance Kit</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">SAMPLE — JAPANESE SELVEDGE DENIM</span>
+    <h1>The Japan–US gap, <em>one pair at a time</em></h1>
+    <p class="lead">Japanese selvedge denim retails for far less in Japan than abroad — but only when the same SKU, the same size and the same condition are compared. This sample shows three models where both sides of the price could be confirmed from public sources on Nov 24, 2026. New condition only. FX: ¥158.70 / $1.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — DENIM (NOV 24, 2026)</p>
+    <h2>Japan retail vs. US retail, same model</h2>
+    <p class="sec-lead">Gross gap = US retail converted to yen − Japan retail. Fees, shipping and tariffs are <b>not</b> deducted yet — the numbers below are the gap before costs, not a profit. A net “max buy” figure needs the fee schedule for denim resale, which is the next step for this dataset.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Japan retail</th><th>US retail</th><th>Gross gap (before fees)</th><th>Gap vs US price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Momotaro 0405SP — 13.5oz, tight tapered</td><td class="num">¥25,300</td><td class="num">$230–$300 (¥36,501–¥47,610)</td><td class="num pos">¥11,201–¥22,310</td><td class="num pos">≈ 31–47%</td></tr>
+          <tr><td>Iron Heart IH-634S — 21oz, straight</td><td class="num">¥34,100</td><td class="num">$385 (¥61,100)</td><td class="num pos">¥27,000</td><td class="num pos">≈ 44%</td></tr>
+          <tr><td>Momotaro 0705SP — 15.7oz, tapered</td><td class="num">¥22,000–¥28,000</td><td class="num">$300 (¥47,610)</td><td class="num pos">¥19,610–¥25,610</td><td class="num pos">≈ 41–54%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Japan retail: Momotaro 0405SP ¥25,300 on Rakuten (authorized dealer), core-model range ¥22,000–¥28,000, and Iron Heart 634S ¥34,100 — all verified against Rakuten Japan listings September–November 2026 (japrix.co, “How to Buy Japanese Denim from Japan in 2026”). US retail: Self Edge $385 for IH-634S (checked Nov 24, 2026); Momotaro US official $300; Momotaro Western retail $230–$300. Prices are model-level list prices; per-size (waist × length) confirmation is still pending, so this page is a sample, not a buy list. Used condition is excluded in this stage.</p>
+    <div class="honest"><b>The honest part:</b> the gap above is gross, not profit. International shipping, any US tariff, marketplace or proxy fees, and returns risk all come out of it. The point of this sample is that the gap exists at list prices — the feed exists to show, model by model, whether it survives costs. Three more models were checked and left out because only one side of the price could be confirmed (Iron Heart IH-633S US $370, IH-634S-142 US $335, Pure Blue Japan XX-013 US $292–$326 — Japan-side price not yet confirmed). We do not publish a row until both sides are in hand.</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">HOW WE COMPARE</p>
+    <h2>Same SKU, same size, same condition — or no row</h2>
+    <p class="sec-lead">Denim prices swing with size and wear, so a comparison is only valid on three axes at once.</p>
+    <div class="card">
+      <ul>
+        <li><b>Model (SKU):</b> brand + model code + fabric weight + finish must match exactly. Near matches are not compared.</li>
+        <li><b>Size:</b> waist × length, tag size as listed. Sanforized / one-washed vs. unsanforized are different items. Size-specific prices are verified before a model moves from sample to feed.</li>
+        <li><b>Condition:</b> New only in this stage. Used jeans are graded separately (New / Like New / Light Fade / Heavy Fade) and never mixed with new in the same table.</li>
+        <li><b>Sources:</b> public retail listings only. No member-only auction data, no scraped private marketplaces.</li>
+      </ul>
+    </div>
+    <p class="tbl-note" style="margin-top:22px">This is a validation sample for the Japan Price Data API. If you buy or import Japanese denim and want this feed — or want a model added — tell us in the early-access email: <a href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Denim%20dataset&amp;body=Dataset%20I%20want%3A%20Denim%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">kouno2025kouno@gmail.com</a>. Planned pricing is the same shape as TCG: $29/mo Starter, $79/mo Pro.</p>
+    <p style="margin-top:26px"><a class="cta-btn" href="index.html">Back to the main page</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> Japan retail: Rakuten Japan listings via japrix.co verification (Sep–Nov 2026). US retail: Self Edge (checked Nov 24, 2026), Iron Heart International, Momotaro US official pricing. FX: ¥158.70 / $1 (Nov 24, 2026 scan rate). All figures are public list prices — not quotes, and not a guarantee of any margin. We do not sell or broker denim; this page is a data sample only.</p>
+    <p>Japan Price Data API — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
