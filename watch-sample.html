@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JDM Vintage Watches — Price-Gap Sample | Japan Price Data API</title>
+<meta name="description" content="Sample: Japan vs overseas prices for JDM vintage watches (Seiko 6309, SARB033, Grand Seiko SBGM221, SBGX083). Matched pairs only — same reference, same condition, same accessories — or no gap is claimed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .pos{color:var(--good);font-weight:700}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  footer{border-top:1px solid var(--line);padding:34px 0 44px;font-size:13.5px;color:var(--muted)}
+  footer .src{margin-bottom:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="index.html">Japan Price Data <span>API</span></a>
+    <nav><a href="index.html">Home</a><a href="buy-ceiling.html">TCG buy-ceiling list</a><a href="eu-kit.html">EU Compliance Kit</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">SAMPLE — JDM VINTAGE WATCHES</span>
+    <h1>A median can hide the <em>whole gap</em></h1>
+    <p class="lead">The Seiko 6309 sold in Japan for ¥35,000 in 2019 — and still ¥35,000 in 2026. In the US the same watch doubled, $350 to $700, over the same years. But the Grand Seiko SBGM221 shows the trap: Japan-side prices for the same reference span ¥35,500 to ¥691,500. A single median for that reference (¥154,000) tells you nothing. This sample shows four references with Japan-side prices measured from public listings in November 2026. FX: ¥159.06 / $1.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — WATCHES (NOV 24, 2026)</p>
+    <h2>Japan price vs. overseas price, same reference</h2>
+    <p class="sec-lead">A row is only a comparison when both sides are measured on the same reference, the same condition and the same accessories (box, papers, seller type). Right now only one reference has both sides on a matched pair. The other rows are snapshots — they show what each side asks, not a gap. Gross gap = overseas price converted to yen − Japan price, before fees, duty and shipping. No net is claimed yet.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Reference</th><th>Japan price</th><th>Overseas price</th><th>Gross gap (before fees)</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Seiko 6309</td><td class="num">¥35,000 (unchanged 2019 → 2026)</td><td class="num">$350 → $700 (¥55,671 → ¥111,342)</td><td class="num">+¥20,671 → +¥76,342</td><td class="pos">WATCH — both sides measured, gap held 15–50% since 2021</td></tr>
+          <tr><td>Seiko SARB033</td><td class="num">¥45,000 (2021 ≈ $410 → now ≈ $288)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only — yen weakness is the story here</td></tr>
+          <tr><td>Grand Seiko SBGM221</td><td class="num">¥35,500–¥691,500 (median ¥154,000 — not trusted)</td><td class="num">sold median $4,200 (17 sales, middle 50% $3,888–$4,595)</td><td class="num">—</td><td>No gap claimed — Japan-side spread is 19×, a median is meaningless</td></tr>
+          <tr><td>Grand Seiko SBGX083</td><td class="num">¥199,000–¥309,540 (median ¥238,000)</td><td class="num">sold $2,579 (¥410,216) — 1 sale only</td><td class="num">—</td><td>Too thin — one US sale cannot carry a gap</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Japan prices: public listings, November 2026 (Seiko 6309 ¥35,000 flat 2019 → 2026; SARB033 ¥45,000; SBGM221 ¥35,500–¥691,500; SBGX083 ¥199,000–¥309,540). Overseas prices: Seiko 6309 US $350 → $700 over the same period; SBGM221 US sold median $4,200 across 17 sales (middle 50% $3,888–$4,595); SBGX083 US sold $2,579, a single sale. One more reference (SARB035) was a candidate — it is not listed here because no price was measured for it yet. Japan-side prices are collected by manual snapshot: Mercari blocks automated fetching, so this feed is hand-checked, not scraped.</p>
+    <div class="honest"><b>The honest part:</b> only one of the four rows is a real comparison — the Seiko 6309, where the Japan price stayed flat at ¥35,000 while the US price doubled, a 15–50% gap that has held since 2021 with no sign of converging. The SBGM221 row is the warning built into this dataset: the same reference in Japan spans ¥35,500 to ¥691,500, so its ¥154,000 median is not a price — and no gap is claimed from it even though the US sold median is $4,200. The SBGX083 row has one US sale; one sale is not a market. And even the 6309 row is gross only: eBay fees, US duty and shipping are not deducted yet, so the WATCH is not a buy signal. Any feed that compares medians of unmatched watches is not a price feed.</div>
+    <div class="card" style="margin-top:26px">
+      <h3>How we compare — the matched-pair rule</h3>
+      <ul>
+        <li><b>Reference:</b> brand + reference number must match exactly. Near matches are not compared.</li>
+        <li><b>Condition:</b> same condition, same accessories (box, papers) and same seller type (private / shop) — a row never mixes them.</li>
+        <li><b>Medians:</b> never used as a gap on their own. A median is only shown with its spread, and a row with a 19× Japan-side spread claims no gap at all.</li>
+        <li><b>Thin data:</b> US sold counts are always shown. A reference with one sale is labelled “1 sale only”.</li>
+        <li><b>Collection:</b> manual snapshots of public listings. Mercari blocks bots, so Japan-side prices are hand-checked (same handling as TCG's Mercari source).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">HOW WE COMPARE</p>
+    <h2>Same reference, same condition, same accessories — or no gap</h2>
+    <p class="sec-lead">Watch prices swing with condition and accessories, so a comparison is only valid when all of them match at once.</p>
+    <div class="card">
+      <ul>
+        <li><b>Reference:</b> brand + reference number must match exactly. Near matches are not compared.</li>
+        <li><b>Condition:</b> same condition grade, same box/papers status, same seller type. A “no-box” watch is a different item from a “full-set” watch of the same reference.</li>
+        <li><b>Medians:</b> a median without its spread is not a price. Wide-spread references claim no gap.</li>
+        <li><b>Sources:</b> public retail and marketplace listings only. No member-only auction data, no scraped private marketplaces.</li>
+      </ul>
+    </div>
+    <p class="tbl-note" style="margin-top:22px">This is a validation sample for the Japan Price Data API. If you buy or import JDM vintage watches and want this feed — or want a reference added — tell us in the early-access email: <a href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Watch%20dataset&amp;body=Dataset%20I%20want%3A%20Watches%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">kouno2025kouno@gmail.com</a>. Planned pricing is the same shape as TCG: $29/mo Starter, $79/mo Pro.</p>
+    <p style="margin-top:26px"><a class="cta-btn" href="index.html">Back to the main page</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> Japan prices: public listings, November 2026 (Seiko 6309 ¥35,000, unchanged 2019 → 2026; Seiko SARB033 ¥45,000; Grand Seiko SBGM221 ¥35,500–¥691,500, median ¥154,000 not trusted; Grand Seiko SBGX083 ¥199,000–¥309,540, median ¥238,000). Overseas prices: Seiko 6309 US $350 → $700 over the same period; SBGM221 US sold median $4,200 across 17 sales (middle 50% $3,888–$4,595); SBGX083 US sold $2,579 (1 sale only). FX: ¥159.06 / $1 (Nov 24, 2026 scan rate). Gross gap = overseas price × FX − Japan price, before eBay fees, US import duty and shipping. All figures are public list prices — not quotes, and not a guarantee of any margin. We do not sell or broker watches; this page is a data sample only.</p>
+    <p>Japan Price Data API — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
