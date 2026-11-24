@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used Film Cameras &amp; Lenses — Price-Gap Sample | Japan Price Data API</title>
+<meta name="description" content="Sample: Japan vs overseas prices for used film cameras and lenses (Canon AE-1, Nikon FM2, Contax T2). Same model, same grade, same working state — or no row.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .pos{color:var(--good);font-weight:700}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  footer{border-top:1px solid var(--line);padding:34px 0 44px;font-size:13.5px;color:var(--muted)}
+  footer .src{margin-bottom:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="index.html">Japan Price Data <span>API</span></a>
+    <nav><a href="index.html">Home</a><a href="buy-ceiling.html">TCG buy-ceiling list</a><a href="eu-kit.html">EU Compliance Kit</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">SAMPLE — USED FILM CAMERAS &amp; LENSES</span>
+    <h1>Working or junk <em>decides the price</em></h1>
+    <p class="lead">The same Canon FD 50mm f/1.4 sold for ¥5,980 working and ¥4,280 for the same model — a 40% gap decided by one thing: whether anyone had checked that it works. Film cameras are only comparable on two axes at once: condition grade (S / A+ / A / B / C) and working state (working vs. junk). This sample shows eight models with Japan-side prices measured from public listings in September–November 2026. FX: ¥158.70 / $1.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">LIVE SAMPLE — CAMERAS (NOV 24, 2026)</p>
+    <h2>Japan price vs. overseas price, same model</h2>
+    <p class="sec-lead">A row is only a comparison when both sides are measured on the same model, the same grade and the same working state. Right now only one model has both sides. The other seven rows are Japan-side snapshots — they show what Japan asks, not a gap. Gross gap = overseas price converted to yen − Japan price, before fees, duty and shipping. No net is claimed yet.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Japan price</th><th>Overseas price</th><th>Gross gap (before fees)</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Contax T2</td><td class="num">¥38,000–¥65,000 (Rakuten, Nov 2026)</td><td class="num">$800–$1,200+ (¥126,960–¥190,440+)</td><td class="num">+¥61,960–¥152,440</td><td class="pos">WATCH — both sides measured, 20–40% cheaper in Japan</td></tr>
+          <tr><td>Canon AE-1 body</td><td class="num">¥6,200 (Mercari, Sep 3, 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Canon AE-1 Program (A grade)</td><td class="num">¥9,800 (Rakuten, Nov 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Canon A-1</td><td class="num">¥11,300 (Rakuten, Nov 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Nikon FM2 (A+ grade)</td><td class="num">¥28,000 (Rakuten, Nov 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Canon T50 + lens</td><td class="num">¥2,500 (Mercari, Sep 3, 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Olympus OM10 body</td><td class="num">¥2,800 (Mercari, Sep 3, 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Japan-side snapshot only</td></tr>
+          <tr><td>Canon FD 50mm f/1.4 S.S.C.</td><td class="num">¥5,980 working / ¥4,280 same model (Mercari, Sep 3, 2026)</td><td class="num">— not yet measured</td><td class="num">—</td><td>Working-state showcase: 40% apart, same lens</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Japan prices: Mercari snapshots Sep 3, 2026 (AE-1, T50, OM10, FD 50mm) and Rakuten listings November 2026 (AE-1 Program, A-1, FM2, Contax T2). Overseas price: Contax T2 US $800–$1,200+ (verified Nov 24, 2026). Two more models (Nikon F3, Pentax K1000) were candidates — they are not listed here because no price was measured for them yet. Japan-side prices are collected by manual snapshot: Mercari blocks automated fetching, so this feed is hand-checked, not scraped.</p>
+    <div class="honest"><b>The honest part:</b> only one of the eight rows is a real comparison — Contax T2, where the Japan price is 20–40% below the US price before fees. The other seven rows have no overseas price yet, so they prove nothing about a gap; they are here so you can see exactly what Japan asks today. And even the Contax row is gross only: eBay fees, US duty and shipping are not deducted yet, so the WATCH is not a buy signal. The FD 50mm row is the warning built into this dataset — the same lens, ¥5,980 working vs. ¥4,280, a 40% spread decided by whether it was tested. Any feed that mixes working and junk in one price is not a price feed.</div>
+    <div class="card" style="margin-top:26px">
+      <h3>How we compare — the grading axes</h3>
+      <ul>
+        <li><b>Condition grade:</b> S / A+ / A / B / C — the grades Japan's major used-camera shops already standardise on.</li>
+        <li><b>Working state:</b> working (operation confirmed) vs. junk (operation not guaranteed). A row never mixes the two.</li>
+        <li><b>Comparison rule:</b> only the same model, the same grade and the same working state are ever compared. Rows of different grades or states are never shown as a “gap”.</li>
+        <li><b>Collection:</b> manual snapshots of public listings. Mercari blocks bots, so Japan-side prices are hand-checked (same handling as TCG's Mercari source).</li>
+        <li><b>Export note:</b> lithium batteries cannot go by international mail — battery-included vs. battery-free is recorded separately and battery cost is split out of shipping. Mechanical cameras have no voltage problem for export.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">HOW WE COMPARE</p>
+    <h2>Same model, same grade, same working state — or no row</h2>
+    <p class="sec-lead">Film camera prices swing with grade and working state, so a comparison is only valid on three axes at once.</p>
+    <div class="card">
+      <ul>
+        <li><b>Model:</b> brand + model + mount must match exactly. Near matches are not compared.</li>
+        <li><b>Grade:</b> S / A+ / A / B / C as listed. A “B” body is a different item from an “A” body of the same model.</li>
+        <li><b>Working state:</b> working vs. junk, recorded separately and never mixed in the same table.</li>
+        <li><b>Sources:</b> public retail and marketplace listings only. No member-only auction data, no scraped private marketplaces.</li>
+      </ul>
+    </div>
+    <p class="tbl-note" style="margin-top:22px">This is a validation sample for the Japan Price Data API. If you buy or import used film cameras and want this feed — or want a model added — tell us in the early-access email: <a href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20Camera%20dataset&amp;body=Dataset%20I%20want%3A%20Cameras%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">kouno2025kouno@gmail.com</a>. Planned pricing is the same shape as TCG: $29/mo Starter, $79/mo Pro.</p>
+    <p style="margin-top:26px"><a class="cta-btn" href="index.html">Back to the main page</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> Japan prices: Mercari public listings, snapshot Sep 3, 2026 (Canon AE-1 ¥6,200; Canon T50 + lens ¥2,500; Olympus OM10 ¥2,800; Canon FD 50mm f/1.4 working ¥5,980 / same model ¥4,280); Rakuten Japan listings, November 2026 (Canon AE-1 Program A grade ¥9,800; Canon A-1 ¥11,300; Nikon FM2 A+ ¥28,000; Contax T2 ¥38,000–¥65,000). Overseas price: Contax T2 US $800–$1,200+ (verified Nov 24, 2026). FX: ¥158.70 / $1 (Nov 24, 2026 scan rate). Gross gap = overseas price × FX − Japan price, before eBay fees, US import duty and shipping. All figures are public list prices — not quotes, and not a guarantee of any margin. We do not sell or broker cameras; this page is a data sample only.</p>
+    <p>Japan Price Data API — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
