@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK CBAM Compliance Kit — templates &amp; calculation tools for importers into the UK</title>
+<meta name="description" content="UK CBAM starts 1 January 2027. No reporting-only period — financial liability from day one. Registration threshold £50,000. First return and payment due 31 May 2028. English templates, emissions calculation tools and HMRC checklists for importers. A tool, not legal advice. Early access open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --core:#17203a;
+    --core-deep:#101730;
+    --accent:#d9481f;
+    --good:#0d7a4a;
+    --bad:#b03a2e;
+    --ink:#23272f;
+    --muted:#5d6673;
+    --line:#dde1e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);line-height:1.75;font-size:16px;background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-variant-numeric:tabular-nums}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;color:var(--core);text-decoration:none;letter-spacing:.01em}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:24px;font-weight:500}
+  nav a:hover{color:var(--core)}
+  nav a.cta-nav{color:var(--core);border:1.5px solid var(--core);padding:6px 15px;border-radius:999px;font-weight:700}
+  nav a.cta-nav:hover{background:var(--core);color:#fff}
+  .hero{background:var(--core);color:#fff;padding:84px 0 72px}
+  .badge{display:inline-block;border:1px solid var(--accent);color:#ffb59d;font-size:13px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:"Archivo",sans-serif;font-size:42px;line-height:1.25;font-weight:800;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:#ff8a66}
+  .hero p.lead{font-size:17.5px;line-height:1.95;color:#cfd6e4;max-width:780px;margin-bottom:34px}
+  .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none;padding:15px 36px;border-radius:8px}
+  .cta-btn:hover{opacity:.88}
+  .hero .note{margin-top:20px;font-size:13.5px;color:#93a0b8}
+  .facts{display:flex;gap:14px;flex-wrap:wrap;margin-top:48px}
+  .fact{flex:1;min-width:170px;background:var(--core-deep);border:1px solid #2b3a63;border-radius:10px;padding:16px}
+  .fact b{display:block;font-family:"Archivo",sans-serif;font-size:24px;color:#fff}
+  .fact small{font-size:12.5px;color:#93a0b8;line-height:1.55;display:block}
+  section{padding:78px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.22em;margin-bottom:12px;font-family:"Archivo",sans-serif}
+  h2{font-family:"Archivo",sans-serif;font-size:29px;font-weight:800;color:var(--core);line-height:1.4;margin-bottom:16px}
+  .sec-lead{color:var(--muted);max-width:800px;margin-bottom:36px}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:760px}
+  th{background:var(--core);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:13px;letter-spacing:.03em}
+  td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr td:first-child{font-weight:700;color:var(--core)}
+  .tbl-note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
+  .honest{background:#fdf1ec;border:1px solid #f3c4b2;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:15px}
+  .honest b{color:var(--accent)}
+  .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:820px){.kit-grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:10px;padding:24px;background:#fff}
+  .card h3{font-family:"Archivo",sans-serif;font-size:17px;color:var(--core);margin-bottom:12px}
+  .card ul{list-style:none}
+  .card li{padding:7px 0;border-top:1px dashed var(--line);font-size:14.5px}
+  .card li:first-of-type{border-top:none}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.price-grid{grid-template-columns:1fr}}
+  .plan{border:1px solid var(--line);border-radius:12px;padding:28px;background:#fff}
+  .plan.hot{border:2px solid var(--accent)}
+  .plan .tag{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent);font-family:"Archivo",sans-serif}
+  .plan .price{font-family:"Archivo",sans-serif;font-size:34px;font-weight:800;color:var(--core);margin:8px 0 4px}
+  .plan .price small{font-size:14px;color:var(--muted);font-weight:600}
+  .plan ul{list-style:none;margin-top:14px}
+  .plan li{font-size:14.5px;padding:6px 0;border-top:1px dashed var(--line)}
+  .plan li:first-child{border-top:none}
+  .cta-band{background:var(--core);color:#fff;border-radius:14px;padding:44px 40px;text-align:center}
+  .cta-band h2{color:#fff}
+  .cta-band p{color:#cfd6e4;max-width:640px;margin:0 auto 28px}
+  footer{padding:44px 0 54px;color:var(--muted);font-size:13px;line-height:1.9}
+  footer .src{margin-bottom:10px}
+  .disclaimer{background:#fff8e6;border:1px solid #ecd27a;border-radius:10px;padding:18px 22px;margin-top:26px;font-size:14.5px}
+  .disclaimer b{color:#8a6d00}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="index.html">Japan Price Data <span>API</span></a>
+    <nav>
+      <a href="#deadlines">Deadlines</a>
+      <a href="#kit">What's inside</a>
+      <a href="#pricing">Pricing</a>
+      <a class="cta-nav" href="#early-access">Early access</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">EARLY ACCESS — VALIDATION PHASE</span>
+    <h1>UK CBAM starts 1 January 2027.<br>There is <em>no warm-up period</em>.</h1>
+    <p class="lead">Unlike the EU, the UK has no reporting-only phase: <b>financial liability starts on day one</b>. If you import aluminium, cement, fertiliser, hydrogen or iron &amp; steel into the UK above the £50,000 threshold, you must register with HMRC and you will pay from your first return. This kit is the English templates, calculation tools and HMRC checklists to be ready before the clock starts — without hiring a consultant for every shipment.</p>
+    <a class="cta-btn" href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20UK%20CBAM%20Compliance%20Kit&amp;body=What%20I%20import%20into%20the%20UK%3A%20%0AApproximate%20annual%20value%3A%20%C2%A3%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">Join the early-access list</a>
+    <p class="note">One email. Tell us what you import, roughly how much, and what you would pay per month — that answer shapes the product.</p>
+    <div class="facts">
+      <div class="fact"><b class="num">1 Jan 2027</b><small>UK CBAM in force — financial liability from day one</small></div>
+      <div class="fact"><b class="num">£50,000</b><small>Registration threshold (past 12 months + next 30 days expected)</small></div>
+      <div class="fact"><b class="num">31 May 2028</b><small>First return and payment due (2027 imports)</small></div>
+      <div class="fact"><b class="num">5 sectors</b><small>Aluminium, cement, fertiliser, hydrogen, iron &amp; steel</small></div>
+    </div>
+  </div>
+</div>
+
+<section id="deadlines">
+  <div class="wrap">
+    <p class="kicker">WHY THE DEADLINES MATTER</p>
+    <h2>Day one means money — not paperwork</h2>
+    <p class="sec-lead">The EU gave importers a transitional reporting period before any money changed hands. The UK did not. From 1 January 2027, every covered import carries a CBAM charge, and the charge is a tax administered by HMRC — not a certificate system like the EU. Complying with the EU scheme does not satisfy the UK one, and vice versa. If you trade with both, you need both answers.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>What it means</th><th>Date / value</th><th>What happens if you miss it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>In force</td><td>UK CBAM applies to imports of aluminium, cement, fertiliser, hydrogen and iron &amp; steel</td><td class="num">1 Jan 2027</td><td>CBAM charge accrues on covered imports from day one</td></tr>
+          <tr><td>Registration</td><td>Importers above the threshold must register with HMRC (test: value of covered goods in the past 12 months plus expected value in the next 30 days)</td><td class="num">£50,000 threshold</td><td>Unregistered imports above the threshold are non-compliant</td></tr>
+          <tr><td>First return</td><td>Annual return for 2027 imports, with payment; quarterly returns from 2028</td><td class="num">31 May 2028</td><td>Late return and payment penalties under HMRC rules</td></tr>
+          <tr><td>Scope</td><td>Direct (embedded) emissions only — indirect emissions are deferred until 2029</td><td class="num">Direct only to 2029</td><td>Supplier data must cover direct emissions; indirect data can wait</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Sources: HMRC / UK Government guidance on the UK Carbon Border Adjustment Mechanism; Jones Day (June 2026); Kuehne+Nagel; SLR Consulting (19 Aug 2026). Figures checked 24 Nov 2026. The UK scheme is a tax, not the EU certificate system — do not mix the two. Rules may still change before commencement, and the kit will be updated when they move.</p>
+    <div class="honest"><b>The honest part:</b> this kit does not do your emissions measurement or your supplier survey for you — that work stays with your company. What it does is give you the templates, the calculation method and the checklists so you can work out whether you are in scope, register, and prepare the evidence HMRC will ask for, in English, without starting from a blank page.</div>
+  </div>
+</section>
+
+<section id="kit" class="alt">
+  <div class="wrap">
+    <p class="kicker">WHAT'S INSIDE</p>
+    <h2>A tool for doing it yourself — not a consultancy</h2>
+    <p class="sec-lead">Everything is a digital download: templates and tools you reuse for every shipment and every return. No verification service, no agency work — the kit is the tool, you are the one who uses it.</p>
+    <div class="kit-grid">
+      <div class="card">
+        <h3>UK CBAM pack</h3>
+        <ul>
+          <li>Threshold test — are you over £50,000? (past 12 months + next 30 days)</li>
+          <li>HMRC registration checklist, step by step</li>
+          <li>Embedded-emissions calculation sheet (direct emissions, step by step)</li>
+          <li>Supplier data request template for your overseas producer</li>
+          <li>Return calendar — annual 2027, quarterly from 2028, first return 31 May 2028</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>UK + EU dual pack</h3>
+        <ul>
+          <li>Side-by-side comparison: UK CBAM (tax) vs EU CBAM (certificates)</li>
+          <li>One supplier data request that serves both schemes</li>
+          <li>Scope decision tree — is your product in scope in the UK, the EU, or both?</li>
+          <li>Combined submission checklist for both deadlines</li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer"><b>Not legal advice.</b> This kit is a set of templates and calculation tools based on public UK government guidance. It is not legal or tax advice and does not replace a lawyer or a tax adviser. UK CBAM is administered by HMRC as a tax — confirm the current rule before you register or submit.</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="kicker">PRICING — UNDER VALIDATION</p>
+    <h2>Planned pricing (tell us if it's wrong)</h2>
+    <p class="sec-lead">These are the prices we are testing in early access — not final. If you would pay a different number, the fastest way to change this page is to reply and say so.</p>
+    <div class="price-grid">
+      <div class="plan">
+        <p class="tag">FREE</p>
+        <p class="price">$0</p>
+        <ul>
+          <li>The deadline table on this page</li>
+          <li>Threshold test (are you in scope?)</li>
+          <li>After launch: sample templates</li>
+        </ul>
+      </div>
+      <div class="plan hot">
+        <p class="tag">STARTER — UK CBAM ONLY</p>
+        <p class="price num">$29<small> /month</small></p>
+        <ul>
+          <li>UK CBAM pack, full templates</li>
+          <li>Calculation sheet + checklists</li>
+          <li>Updates when the rules change</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <p class="tag">PRO — UK + EU DUAL</p>
+        <p class="price num">$79<small> /month</small></p>
+        <ul>
+          <li>Everything in Starter, plus the dual pack</li>
+          <li>Combined UK + EU submission checklist</li>
+          <li>Priority updates on rule changes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="early-access">
+  <div class="wrap">
+    <div class="cta-band">
+      <p class="kicker" style="color:#ff8a66">EARLY ACCESS</p>
+      <h2>Be one of the first 10 on the list</h2>
+      <p>Early access opens to a small group of UK importers first. Send one email with what you import into the UK, roughly how much, and the monthly price you would actually pay.</p>
+      <a class="cta-btn" href="mailto:kouno2025kouno@gmail.com?subject=Early%20access%20%E2%80%94%20UK%20CBAM%20Compliance%20Kit&amp;body=What%20I%20import%20into%20the%20UK%3A%20%0AApproximate%20annual%20value%3A%20%C2%A3%0AWhat%20I%20would%20pay%20per%20month%3A%20%24%0AUse%20case%3A%20">Email us — join early access</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="src"><b>Sources &amp; method.</b> UK CBAM: HMRC / UK Government guidance; Jones Day (June 2026); Kuehne+Nagel; SLR Consulting (19 Aug 2026). EU CBAM comparison: Regulation (EU) 2025/2083. All figures are from public sources — not legal or tax advice, and not a guarantee of any outcome. This kit is a tool for producing your own evidence; measurement and verification remain your company's work.</p>
+    <p>UK CBAM Compliance Kit — a validation-phase project operated from Japan. Contact: kouno2025kouno@gmail.com — see also the <a href="eu-kit.html">EU Compliance Kit (CBAM + EUDR)</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
